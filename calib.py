@@ -77,6 +77,7 @@ def calib(folder):
      
     plt.xlabel("Image")
     plt.ylabel("L2-norm of error")
+    plt.savefig('error_per_image.jpg')
     plt.show()
 
     np.savetxt('camera_model.txt',mtx,fmt='%0.16f')
