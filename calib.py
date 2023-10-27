@@ -4,8 +4,8 @@ import glob
 import argparse
 import matplotlib.pyplot as plt
 
-ignores = ['000007']
-#ignores = []
+#ignores = ['000007']
+ignores = []
 
 def calib(folder):
     rows = 9
@@ -40,6 +40,8 @@ def calib(folder):
             # Draw and display the corners
             cv2.drawChessboardCorners(img, (rows,cols), corners2, ret)
         cv2.imshow('img', img)
+        if False:
+            cv2.imwrite('./drawChessBoardCorners/'+fname.split('/')[-1].split('.')[0]+'.jpg',img)
         cv2.waitKey(-1)
 
     ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
